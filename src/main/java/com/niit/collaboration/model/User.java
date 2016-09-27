@@ -1,13 +1,16 @@
 package com.niit.collaboration.model;
 
 import javax.persistence.Entity;
-
+import javax.persistence.Table;
+import javax.persistence.Id;
 import org.springframework.stereotype.Component;
 
 @Entity
 @Component
+@Table(name = "user_details")
 public class User {
-
+	
+	@Id
 	private String Id;
 	private String name;
 	private String password;
@@ -15,6 +18,7 @@ public class User {
 	private String mobile;
 	private String gender;
 	private String status;
+	
 	public String getId() {
 		return Id;
 	}

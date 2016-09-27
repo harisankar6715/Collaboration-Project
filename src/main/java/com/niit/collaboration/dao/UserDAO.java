@@ -6,8 +6,8 @@ import com.niit.collaboration.model.User;
 
 public interface UserDAO {
 	
-	void saveOrUpdateUser_Details(User user);
-	void deleteUser(String Id);
+	void saveOrUpdate(User user);
+	void delete(String Id);
 	public User getUser(String Id);
 	List<User> listUser();
 

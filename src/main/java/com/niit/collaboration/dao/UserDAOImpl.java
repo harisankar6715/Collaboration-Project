@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collaboration.model.User;
 
-@Repository("userDAO")
+@Transactional
+@Repository("userDao")
 public class UserDAOImpl implements UserDAO {
 	
 	@Autowired
@@ -21,13 +22,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Transactional
-	public void saveOrUpdateUser_Details(User user) {
+	public void saveOrUpdate(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 
 	}
 
 	@Transactional
-	public void deleteUser(String Id) {
+	public void delete(String Id) {
 		User userToDelete = new User();
 		userToDelete.setId(Id);
 		sessionFactory.getCurrentSession().delete(userToDelete);
