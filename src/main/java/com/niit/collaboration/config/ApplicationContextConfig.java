@@ -13,13 +13,16 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.jsf.el.WebApplicationContextFacesELResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.niit.collaboration.model.User;
-
+@EnableWebMvc
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("com.niit.collaboration")
-public class ApplicationContextConfig {
+public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean(name = "datasource")
 	public DataSource getOracleDatasource() {
