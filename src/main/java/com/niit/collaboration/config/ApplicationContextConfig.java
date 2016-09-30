@@ -17,6 +17,7 @@ import org.springframework.web.jsf.el.WebApplicationContextFacesELResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.User;
 @EnableWebMvc
 @Configuration
@@ -49,6 +50,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(datasource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(Blog.class);
 		
 		return sessionBuilder.buildSessionFactory();
 	}

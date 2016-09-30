@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/user/")
-	public ResponseEntity<User> createBlog(@RequestBody User user) {
+	public ResponseEntity<User> createUser(@RequestBody User user) {
 
 		userDAO.saveOrUpdate(user);
 
@@ -67,7 +67,7 @@ public class UserController {
 	}
 
 	@PutMapping("/user/{id}")
-	public ResponseEntity<User> updateBlog(@PathVariable String id, @RequestBody User user) {
+	public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User user) {
 
 		if (userDAO.getUser(id) == null) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
