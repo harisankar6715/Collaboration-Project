@@ -27,7 +27,7 @@ public class BlogTest {
 		Timestamp timestamp = new Timestamp(time);
 
 
-		blog.setId("B1");
+		blog.setId("B15");
 		blog.setDescription("This is the First Blog");
 		blog.setTitle("First Blog");
 		blog.setStatus('A');

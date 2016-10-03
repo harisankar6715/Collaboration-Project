@@ -13,7 +13,7 @@ public class UserTest {
 			
 			@SuppressWarnings("resource")
 			AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-			context.scan("com.niit.collaboration");
+			context.scan("com.niit");
 			context.refresh();
 			UserDAO userDAO = (UserDAO) context.getBean("userDao");
 			User user = (User) context.getBean("user");

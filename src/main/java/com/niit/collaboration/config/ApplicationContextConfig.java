@@ -18,11 +18,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.niit.collaboration.model.Blog;
+import com.niit.collaboration.model.Event;
 import com.niit.collaboration.model.User;
-@EnableWebMvc
+
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.niit.collaboration")
+@ComponentScan("com.niit")
 public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 	
 	@Bean(name = "datasource")
@@ -32,6 +33,12 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		datasource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 		datasource.setUsername("collaboration");
 		datasource.setPassword("sa");
+		Properties properties = new Properties();
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.format_sql", "true");		
+		properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		properties.put("hibernate.hbm2ddl.auto", "update");
+		datasource.setConnectionProperties(properties);
 		return datasource;
 	}
 
@@ -39,7 +46,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");		
-		properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		return properties;
 	}
@@ -51,6 +58,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Blog.class);
+		sessionBuilder.addAnnotatedClass(Event.class);
 		
 		return sessionBuilder.buildSessionFactory();
 	}

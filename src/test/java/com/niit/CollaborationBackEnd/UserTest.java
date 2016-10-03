@@ -10,7 +10,7 @@ public class UserTest {
 	
 
 	public static void main(String[] args) {
-			
+			/*
 			@SuppressWarnings("resource")
 			AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 			context.scan("com.niit.collaboration");
@@ -41,7 +41,7 @@ public class UserTest {
 			{
 				System.out.println("USER exists..");
 				System.out.println();
-			} 
+			} */
 		}
 
 		
