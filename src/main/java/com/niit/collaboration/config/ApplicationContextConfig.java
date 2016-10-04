@@ -22,6 +22,7 @@ import com.niit.collaboration.model.Event;
 import com.niit.collaboration.model.Forum;
 import com.niit.collaboration.model.ForumPost;
 import com.niit.collaboration.model.ForumPostComment;
+import com.niit.collaboration.model.JobDetails;
 import com.niit.collaboration.model.User;
 
 @Configuration
@@ -65,7 +66,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(ForumPost.class);
 		sessionBuilder.addAnnotatedClass(ForumPostComment.class);
-		
+		sessionBuilder.addAnnotatedClass(JobDetails.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 
