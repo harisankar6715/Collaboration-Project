@@ -20,6 +20,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.niit.collaboration.model.Blog;
 import com.niit.collaboration.model.Event;
 import com.niit.collaboration.model.Forum;
+import com.niit.collaboration.model.ForumPost;
+import com.niit.collaboration.model.ForumPostComment;
 import com.niit.collaboration.model.User;
 
 @Configuration
@@ -61,6 +63,8 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		sessionBuilder.addAnnotatedClass(Blog.class);
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
+		sessionBuilder.addAnnotatedClass(ForumPost.class);
+		sessionBuilder.addAnnotatedClass(ForumPostComment.class);
 		
 		return sessionBuilder.buildSessionFactory();
 	}
