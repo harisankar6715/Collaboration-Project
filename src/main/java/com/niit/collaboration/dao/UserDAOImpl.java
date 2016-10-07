@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.collaboration.model.User;
 
 @Transactional
-@Repository("userDao")
+@Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
 	
 	@Autowired
